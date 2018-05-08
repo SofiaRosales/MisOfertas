@@ -1,0 +1,1616 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OfertasModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BOLETA">
+          <Key>
+            <PropertyRef Name="BOL_NRO" />
+          </Key>
+          <Property Name="BOL_NRO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="BOL_FECHA" Type="date" Nullable="false" />
+          <Property Name="BOL_TOTAL" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CAT_PRODUCT">
+          <Key>
+            <PropertyRef Name="CAT_ID" />
+          </Key>
+          <Property Name="CAT_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CAT_NOMBRE" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="INTERES_USUARIO_INTE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SUB_PRODUCTO_SUB_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COMUNA">
+          <Key>
+            <PropertyRef Name="COM_ID" />
+          </Key>
+          <Property Name="PROVINCIA_PROV_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="COM_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="COM_NOMBRE" Type="varchar2" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUPON">
+          <Key>
+            <PropertyRef Name="CUP_ID" />
+          </Key>
+          <Property Name="DESCUENTO_DESCUENTO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CUP_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USUARIO_USER_ID" Type="varchar2" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DESCUENTO">
+          <Key>
+            <PropertyRef Name="DESCUENTO_ID" />
+          </Key>
+          <Property Name="DESCUENTO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCUENTO_PORCENTAJE" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DETALLE_VENTA">
+          <Key>
+            <PropertyRef Name="DETALLE_ID" />
+          </Key>
+          <Property Name="BOLETA_BOL_NRO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DETALLE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="OFERTA_OFER_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DIRECCION">
+          <Key>
+            <PropertyRef Name="DIR_ID" />
+          </Key>
+          <Property Name="COMUNA_COM_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DIR_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CALLE" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="NRO_CASA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DEPTO" Type="varchar2" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="EMPRESA">
+          <Key>
+            <PropertyRef Name="EMP_ID" />
+          </Key>
+          <Property Name="DIRECCION_DIR_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="EMP_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="EMP_NOMBRE" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="EMP_RUT" Type="varchar2" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FAVORITO">
+          <Key>
+            <PropertyRef Name="FAVO_ID" />
+          </Key>
+          <Property Name="FAVO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="OFERTA_OFER_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FAVO_NOMBRE" Type="varchar2" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="INTERES_USUARIO">
+          <Key>
+            <PropertyRef Name="INTE_ID" />
+          </Key>
+          <Property Name="INTE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USUARIO_USER_ID" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="INTE_1" Type="number" Precision="38" Scale="0" />
+          <Property Name="INTE_2" Type="number" Precision="38" Scale="0" />
+          <Property Name="INTE_3" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="OFERTA">
+          <Key>
+            <PropertyRef Name="OFER_ID" />
+          </Key>
+          <Property Name="PRODUCTO_PROD_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="OFER_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="OFER_ESTADO" Type="char" MaxLength="1" />
+          <Property Name="PORCEN_DSCTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PRECIO_DSCTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="OFER_STOCK" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DETALLE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FAVO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERFIL">
+          <Key>
+            <PropertyRef Name="PER_ID" />
+          </Key>
+          <Property Name="PER_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PER_NOMBRE" Type="varchar2" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERSONA">
+          <Key>
+            <PropertyRef Name="PERSO_ID" />
+            <PropertyRef Name="PERSO_RUT" />
+            <PropertyRef Name="PERSO_DV" />
+          </Key>
+          <Property Name="DIRECCION_DIR_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PERSO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PERSO_RUT" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PERSO_DV" Type="varchar2" MaxLength="1" Nullable="false" />
+          <Property Name="PERSO_NOMBRE" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="PERSO_APELLIDO" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="PERSO_CORREO" Type="varchar2" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="PRODUCTO">
+          <Key>
+            <PropertyRef Name="PROD_ID" />
+          </Key>
+          <Property Name="TIENDA_TIEN_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROD_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROD_NOMBRE" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="PROD_DESCRIPCION" Type="varchar2" MaxLength="150" Nullable="false" />
+          <Property Name="PRECIO_ORIGINAL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROD_IMAGEN" Type="varchar2" MaxLength="700" />
+          <Property Name="CAT_PRODUCT_CAT_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROVINCIA">
+          <Key>
+            <PropertyRef Name="PROV_ID" />
+          </Key>
+          <Property Name="REGION_REG_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROV_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROV_NOMBRE" Type="varchar2" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="REG_ID" />
+          </Key>
+          <Property Name="REG_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="REG_NOMBRE" Type="varchar2" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RESER_ESTADO">
+          <Key>
+            <PropertyRef Name="ESTADO_ID" />
+          </Key>
+          <Property Name="ESTADO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ESTADO_NOMBRE" Type="varchar2" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RESER_OFER">
+          <Key>
+            <PropertyRef Name="RESE_ID" />
+          </Key>
+          <Property Name="RESE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RESE_FECHA" Type="date" Nullable="false" />
+          <Property Name="RESER_ESTADO_ESTADO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="OFERTA_OFER_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USUARIO_USER_ID" Type="varchar2" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SUB_PRODUCTO">
+          <Key>
+            <PropertyRef Name="SUB_ID" />
+          </Key>
+          <Property Name="SUB_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SUB_NOMBRE" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="CAT_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIENDA">
+          <Key>
+            <PropertyRef Name="TIEN_ID" />
+          </Key>
+          <Property Name="DIRECCION_DIR_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="EMPRESA_EMP_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIEN_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIEN_NOM" Type="varchar2" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="PERSONA_PERSO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PERSONA_PERSO_RUT" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PERSONA_PERSO_DV" Type="varchar2" MaxLength="1" Nullable="false" />
+          <Property Name="USER_ID" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="USER_NOMBRE" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="USER_CONTRA" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="PERFIL_PER_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FAVORITO_FAVO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VALO_OFER">
+          <Key>
+            <PropertyRef Name="VALO_ID" />
+          </Key>
+          <Property Name="DETALLE_VENTA_DETALLE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="VALO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="VALO_PUNTAJE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USUARIO_USER_ID" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="VALO_FECHA" Type="date" Nullable="false" />
+          <Property Name="VALO_COMENTARIO" Type="varchar2" MaxLength="150" />
+          <Property Name="VALO_FOTO" Type="varchar2" MaxLength="700" />
+        </EntityType>
+        <Association Name="CAT_PRODUCT_INTERES_USUARIO_FK">
+          <End Role="INTERES_USUARIO" Type="Self.INTERES_USUARIO" Multiplicity="1" />
+          <End Role="CAT_PRODUCT" Type="Self.CAT_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INTERES_USUARIO">
+              <PropertyRef Name="INTE_ID" />
+            </Principal>
+            <Dependent Role="CAT_PRODUCT">
+              <PropertyRef Name="INTERES_USUARIO_INTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAT_PRODUCT_SUB_PRODUCTO_FK">
+          <End Role="SUB_PRODUCTO" Type="Self.SUB_PRODUCTO" Multiplicity="1" />
+          <End Role="CAT_PRODUCT" Type="Self.CAT_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUB_PRODUCTO">
+              <PropertyRef Name="SUB_ID" />
+            </Principal>
+            <Dependent Role="CAT_PRODUCT">
+              <PropertyRef Name="SUB_PRODUCTO_SUB_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="COMUNA_PROVINCIA_FK">
+          <End Role="PROVINCIA" Type="Self.PROVINCIA" Multiplicity="1" />
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVINCIA">
+              <PropertyRef Name="PROV_ID" />
+            </Principal>
+            <Dependent Role="COMUNA">
+              <PropertyRef Name="PROVINCIA_PROV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CUPON_DESCUENTO_FK">
+          <End Role="DESCUENTO" Type="Self.DESCUENTO" Multiplicity="1" />
+          <End Role="CUPON" Type="Self.CUPON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DESCUENTO">
+              <PropertyRef Name="DESCUENTO_ID" />
+            </Principal>
+            <Dependent Role="CUPON">
+              <PropertyRef Name="DESCUENTO_DESCUENTO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CUPON_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="CUPON" Type="Self.CUPON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="CUPON">
+              <PropertyRef Name="USUARIO_USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_VENTA_BOLETA_FK">
+          <End Role="BOLETA" Type="Self.BOLETA" Multiplicity="1" />
+          <End Role="DETALLE_VENTA" Type="Self.DETALLE_VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOLETA">
+              <PropertyRef Name="BOL_NRO" />
+            </Principal>
+            <Dependent Role="DETALLE_VENTA">
+              <PropertyRef Name="BOLETA_BOL_NRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_VENTA_OFERTA_FK">
+          <End Role="OFERTA" Type="Self.OFERTA" Multiplicity="1" />
+          <End Role="DETALLE_VENTA" Type="Self.DETALLE_VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OFERTA">
+              <PropertyRef Name="OFER_ID" />
+            </Principal>
+            <Dependent Role="DETALLE_VENTA">
+              <PropertyRef Name="OFERTA_OFER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DIRECCION_COMUNA_FK">
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="1" />
+          <End Role="DIRECCION" Type="Self.DIRECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNA">
+              <PropertyRef Name="COM_ID" />
+            </Principal>
+            <Dependent Role="DIRECCION">
+              <PropertyRef Name="COMUNA_COM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPRESA_DIRECCION_FK">
+          <End Role="DIRECCION" Type="Self.DIRECCION" Multiplicity="1" />
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIRECCION">
+              <PropertyRef Name="DIR_ID" />
+            </Principal>
+            <Dependent Role="EMPRESA">
+              <PropertyRef Name="DIRECCION_DIR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FAVORITO_OFERTA_FK">
+          <End Role="OFERTA" Type="Self.OFERTA" Multiplicity="1" />
+          <End Role="FAVORITO" Type="Self.FAVORITO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OFERTA">
+              <PropertyRef Name="OFER_ID" />
+            </Principal>
+            <Dependent Role="FAVORITO">
+              <PropertyRef Name="OFERTA_OFER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTERES_USUARIO_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="INTERES_USUARIO" Type="Self.INTERES_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="INTERES_USUARIO">
+              <PropertyRef Name="USUARIO_USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OFERTA_PRODUCTO_FK">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
+          <End Role="OFERTA" Type="Self.OFERTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="PROD_ID" />
+            </Principal>
+            <Dependent Role="OFERTA">
+              <PropertyRef Name="PRODUCTO_PROD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERSONA_DIRECCION_FK">
+          <End Role="DIRECCION" Type="Self.DIRECCION" Multiplicity="1" />
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIRECCION">
+              <PropertyRef Name="DIR_ID" />
+            </Principal>
+            <Dependent Role="PERSONA">
+              <PropertyRef Name="DIRECCION_DIR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_CAT_PRODUCT_FK">
+          <End Role="CAT_PRODUCT" Type="Self.CAT_PRODUCT" Multiplicity="1" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_PRODUCT">
+              <PropertyRef Name="CAT_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="CAT_PRODUCT_CAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_TIENDA_FK">
+          <End Role="TIENDA" Type="Self.TIENDA" Multiplicity="1" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIENDA">
+              <PropertyRef Name="TIEN_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="TIENDA_TIEN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PROVINCIA_REGION_FK">
+          <End Role="REGION" Type="Self.REGION" Multiplicity="1" />
+          <End Role="PROVINCIA" Type="Self.PROVINCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION">
+              <PropertyRef Name="REG_ID" />
+            </Principal>
+            <Dependent Role="PROVINCIA">
+              <PropertyRef Name="REGION_REG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RESER_OFER_OFERTA_FK">
+          <End Role="OFERTA" Type="Self.OFERTA" Multiplicity="1" />
+          <End Role="RESER_OFER" Type="Self.RESER_OFER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OFERTA">
+              <PropertyRef Name="OFER_ID" />
+            </Principal>
+            <Dependent Role="RESER_OFER">
+              <PropertyRef Name="OFERTA_OFER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RESER_OFER_RESER_ESTADO_FK">
+          <End Role="RESER_ESTADO" Type="Self.RESER_ESTADO" Multiplicity="1" />
+          <End Role="RESER_OFER" Type="Self.RESER_OFER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESER_ESTADO">
+              <PropertyRef Name="ESTADO_ID" />
+            </Principal>
+            <Dependent Role="RESER_OFER">
+              <PropertyRef Name="RESER_ESTADO_ESTADO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RESER_OFER_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="RESER_OFER" Type="Self.RESER_OFER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="RESER_OFER">
+              <PropertyRef Name="USUARIO_USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TIENDA_DIRECCION_FK">
+          <End Role="DIRECCION" Type="Self.DIRECCION" Multiplicity="1" />
+          <End Role="TIENDA" Type="Self.TIENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIRECCION">
+              <PropertyRef Name="DIR_ID" />
+            </Principal>
+            <Dependent Role="TIENDA">
+              <PropertyRef Name="DIRECCION_DIR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TIENDA_EMPRESA_FK">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+          <End Role="TIENDA" Type="Self.TIENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="EMP_ID" />
+            </Principal>
+            <Dependent Role="TIENDA">
+              <PropertyRef Name="EMPRESA_EMP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_FAVORITO_FK">
+          <End Role="FAVORITO" Type="Self.FAVORITO" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FAVORITO">
+              <PropertyRef Name="FAVO_ID" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="FAVORITO_FAVO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_PERFIL_FK">
+          <End Role="PERFIL" Type="Self.PERFIL" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERFIL">
+              <PropertyRef Name="PER_ID" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="PERFIL_PER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_PERSONA_FK">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="PERSO_ID" />
+              <PropertyRef Name="PERSO_RUT" />
+              <PropertyRef Name="PERSO_DV" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="PERSONA_PERSO_ID" />
+              <PropertyRef Name="PERSONA_PERSO_RUT" />
+              <PropertyRef Name="PERSONA_PERSO_DV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VALO_OFER_DETALLE_VENTA_FK">
+          <End Role="DETALLE_VENTA" Type="Self.DETALLE_VENTA" Multiplicity="1" />
+          <End Role="VALO_OFER" Type="Self.VALO_OFER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DETALLE_VENTA">
+              <PropertyRef Name="DETALLE_ID" />
+            </Principal>
+            <Dependent Role="VALO_OFER">
+              <PropertyRef Name="DETALLE_VENTA_DETALLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VALO_OFER_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="VALO_OFER" Type="Self.VALO_OFER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="VALO_OFER">
+              <PropertyRef Name="USUARIO_USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OfertasModelStoreContainer">
+          <EntitySet Name="BOLETA" EntityType="Self.BOLETA" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="CAT_PRODUCT" EntityType="Self.CAT_PRODUCT" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="COMUNA" EntityType="Self.COMUNA" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="CUPON" EntityType="Self.CUPON" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="DESCUENTO" EntityType="Self.DESCUENTO" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="DETALLE_VENTA" EntityType="Self.DETALLE_VENTA" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="DIRECCION" EntityType="Self.DIRECCION" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="EMPRESA" EntityType="Self.EMPRESA" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="FAVORITO" EntityType="Self.FAVORITO" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="INTERES_USUARIO" EntityType="Self.INTERES_USUARIO" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="OFERTA" EntityType="Self.OFERTA" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="PERFIL" EntityType="Self.PERFIL" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="PERSONA" EntityType="Self.PERSONA" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="PROVINCIA" EntityType="Self.PROVINCIA" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="REGION" EntityType="Self.REGION" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="RESER_ESTADO" EntityType="Self.RESER_ESTADO" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="RESER_OFER" EntityType="Self.RESER_OFER" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="SUB_PRODUCTO" EntityType="Self.SUB_PRODUCTO" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="TIENDA" EntityType="Self.TIENDA" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="DBPRUEBA" store:Type="Tables" />
+          <EntitySet Name="VALO_OFER" EntityType="Self.VALO_OFER" Schema="DBPRUEBA" store:Type="Tables" />
+          <AssociationSet Name="CAT_PRODUCT_INTERES_USUARIO_FK" Association="Self.CAT_PRODUCT_INTERES_USUARIO_FK">
+            <End Role="INTERES_USUARIO" EntitySet="INTERES_USUARIO" />
+            <End Role="CAT_PRODUCT" EntitySet="CAT_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="CAT_PRODUCT_SUB_PRODUCTO_FK" Association="Self.CAT_PRODUCT_SUB_PRODUCTO_FK">
+            <End Role="SUB_PRODUCTO" EntitySet="SUB_PRODUCTO" />
+            <End Role="CAT_PRODUCT" EntitySet="CAT_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="COMUNA_PROVINCIA_FK" Association="Self.COMUNA_PROVINCIA_FK">
+            <End Role="PROVINCIA" EntitySet="PROVINCIA" />
+            <End Role="COMUNA" EntitySet="COMUNA" />
+          </AssociationSet>
+          <AssociationSet Name="CUPON_DESCUENTO_FK" Association="Self.CUPON_DESCUENTO_FK">
+            <End Role="DESCUENTO" EntitySet="DESCUENTO" />
+            <End Role="CUPON" EntitySet="CUPON" />
+          </AssociationSet>
+          <AssociationSet Name="CUPON_USUARIO_FK" Association="Self.CUPON_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="CUPON" EntitySet="CUPON" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_VENTA_BOLETA_FK" Association="Self.DETALLE_VENTA_BOLETA_FK">
+            <End Role="BOLETA" EntitySet="BOLETA" />
+            <End Role="DETALLE_VENTA" EntitySet="DETALLE_VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_VENTA_OFERTA_FK" Association="Self.DETALLE_VENTA_OFERTA_FK">
+            <End Role="OFERTA" EntitySet="OFERTA" />
+            <End Role="DETALLE_VENTA" EntitySet="DETALLE_VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="DIRECCION_COMUNA_FK" Association="Self.DIRECCION_COMUNA_FK">
+            <End Role="COMUNA" EntitySet="COMUNA" />
+            <End Role="DIRECCION" EntitySet="DIRECCION" />
+          </AssociationSet>
+          <AssociationSet Name="EMPRESA_DIRECCION_FK" Association="Self.EMPRESA_DIRECCION_FK">
+            <End Role="DIRECCION" EntitySet="DIRECCION" />
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="FAVORITO_OFERTA_FK" Association="Self.FAVORITO_OFERTA_FK">
+            <End Role="OFERTA" EntitySet="OFERTA" />
+            <End Role="FAVORITO" EntitySet="FAVORITO" />
+          </AssociationSet>
+          <AssociationSet Name="INTERES_USUARIO_USUARIO_FK" Association="Self.INTERES_USUARIO_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="INTERES_USUARIO" EntitySet="INTERES_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="OFERTA_PRODUCTO_FK" Association="Self.OFERTA_PRODUCTO_FK">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="OFERTA" EntitySet="OFERTA" />
+          </AssociationSet>
+          <AssociationSet Name="PERSONA_DIRECCION_FK" Association="Self.PERSONA_DIRECCION_FK">
+            <End Role="DIRECCION" EntitySet="DIRECCION" />
+            <End Role="PERSONA" EntitySet="PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_CAT_PRODUCT_FK" Association="Self.PRODUCTO_CAT_PRODUCT_FK">
+            <End Role="CAT_PRODUCT" EntitySet="CAT_PRODUCT" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_TIENDA_FK" Association="Self.PRODUCTO_TIENDA_FK">
+            <End Role="TIENDA" EntitySet="TIENDA" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="PROVINCIA_REGION_FK" Association="Self.PROVINCIA_REGION_FK">
+            <End Role="REGION" EntitySet="REGION" />
+            <End Role="PROVINCIA" EntitySet="PROVINCIA" />
+          </AssociationSet>
+          <AssociationSet Name="RESER_OFER_OFERTA_FK" Association="Self.RESER_OFER_OFERTA_FK">
+            <End Role="OFERTA" EntitySet="OFERTA" />
+            <End Role="RESER_OFER" EntitySet="RESER_OFER" />
+          </AssociationSet>
+          <AssociationSet Name="RESER_OFER_RESER_ESTADO_FK" Association="Self.RESER_OFER_RESER_ESTADO_FK">
+            <End Role="RESER_ESTADO" EntitySet="RESER_ESTADO" />
+            <End Role="RESER_OFER" EntitySet="RESER_OFER" />
+          </AssociationSet>
+          <AssociationSet Name="RESER_OFER_USUARIO_FK" Association="Self.RESER_OFER_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="RESER_OFER" EntitySet="RESER_OFER" />
+          </AssociationSet>
+          <AssociationSet Name="TIENDA_DIRECCION_FK" Association="Self.TIENDA_DIRECCION_FK">
+            <End Role="DIRECCION" EntitySet="DIRECCION" />
+            <End Role="TIENDA" EntitySet="TIENDA" />
+          </AssociationSet>
+          <AssociationSet Name="TIENDA_EMPRESA_FK" Association="Self.TIENDA_EMPRESA_FK">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="TIENDA" EntitySet="TIENDA" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_FAVORITO_FK" Association="Self.USUARIO_FAVORITO_FK">
+            <End Role="FAVORITO" EntitySet="FAVORITO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_PERFIL_FK" Association="Self.USUARIO_PERFIL_FK">
+            <End Role="PERFIL" EntitySet="PERFIL" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_PERSONA_FK" Association="Self.USUARIO_PERSONA_FK">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="VALO_OFER_DETALLE_VENTA_FK" Association="Self.VALO_OFER_DETALLE_VENTA_FK">
+            <End Role="DETALLE_VENTA" EntitySet="DETALLE_VENTA" />
+            <End Role="VALO_OFER" EntitySet="VALO_OFER" />
+          </AssociationSet>
+          <AssociationSet Name="VALO_OFER_USUARIO_FK" Association="Self.VALO_OFER_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="VALO_OFER" EntitySet="VALO_OFER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OfertasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="OfertasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BOLETA" EntityType="OfertasModel.BOLETA" />
+          <EntitySet Name="CAT_PRODUCT" EntityType="OfertasModel.CAT_PRODUCT" />
+          <EntitySet Name="COMUNA" EntityType="OfertasModel.COMUNA" />
+          <EntitySet Name="CUPON" EntityType="OfertasModel.CUPON" />
+          <EntitySet Name="DESCUENTO" EntityType="OfertasModel.DESCUENTO" />
+          <EntitySet Name="DETALLE_VENTA" EntityType="OfertasModel.DETALLE_VENTA" />
+          <EntitySet Name="DIRECCION" EntityType="OfertasModel.DIRECCION" />
+          <EntitySet Name="EMPRESA" EntityType="OfertasModel.EMPRESA" />
+          <EntitySet Name="FAVORITO" EntityType="OfertasModel.FAVORITO" />
+          <EntitySet Name="INTERES_USUARIO" EntityType="OfertasModel.INTERES_USUARIO" />
+          <EntitySet Name="OFERTA" EntityType="OfertasModel.OFERTA" />
+          <EntitySet Name="PERFIL" EntityType="OfertasModel.PERFIL" />
+          <EntitySet Name="PERSONA" EntityType="OfertasModel.PERSONA" />
+          <EntitySet Name="PRODUCTO" EntityType="OfertasModel.PRODUCTO" />
+          <EntitySet Name="PROVINCIA" EntityType="OfertasModel.PROVINCIA" />
+          <EntitySet Name="REGION" EntityType="OfertasModel.REGION" />
+          <EntitySet Name="RESER_ESTADO" EntityType="OfertasModel.RESER_ESTADO" />
+          <EntitySet Name="RESER_OFER" EntityType="OfertasModel.RESER_OFER" />
+          <EntitySet Name="SUB_PRODUCTO" EntityType="OfertasModel.SUB_PRODUCTO" />
+          <EntitySet Name="TIENDA" EntityType="OfertasModel.TIENDA" />
+          <EntitySet Name="USUARIO" EntityType="OfertasModel.USUARIO" />
+          <EntitySet Name="VALO_OFER" EntityType="OfertasModel.VALO_OFER" />
+          <AssociationSet Name="DETALLE_VENTA_BOLETA_FK" Association="OfertasModel.DETALLE_VENTA_BOLETA_FK">
+            <End Role="BOLETA" EntitySet="BOLETA" />
+            <End Role="DETALLE_VENTA" EntitySet="DETALLE_VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="CAT_PRODUCT_INTERES_USUARIO_FK" Association="OfertasModel.CAT_PRODUCT_INTERES_USUARIO_FK">
+            <End Role="INTERES_USUARIO" EntitySet="INTERES_USUARIO" />
+            <End Role="CAT_PRODUCT" EntitySet="CAT_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="CAT_PRODUCT_SUB_PRODUCTO_FK" Association="OfertasModel.CAT_PRODUCT_SUB_PRODUCTO_FK">
+            <End Role="SUB_PRODUCTO" EntitySet="SUB_PRODUCTO" />
+            <End Role="CAT_PRODUCT" EntitySet="CAT_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_CAT_PRODUCT_FK" Association="OfertasModel.PRODUCTO_CAT_PRODUCT_FK">
+            <End Role="CAT_PRODUCT" EntitySet="CAT_PRODUCT" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="COMUNA_PROVINCIA_FK" Association="OfertasModel.COMUNA_PROVINCIA_FK">
+            <End Role="PROVINCIA" EntitySet="PROVINCIA" />
+            <End Role="COMUNA" EntitySet="COMUNA" />
+          </AssociationSet>
+          <AssociationSet Name="DIRECCION_COMUNA_FK" Association="OfertasModel.DIRECCION_COMUNA_FK">
+            <End Role="COMUNA" EntitySet="COMUNA" />
+            <End Role="DIRECCION" EntitySet="DIRECCION" />
+          </AssociationSet>
+          <AssociationSet Name="CUPON_DESCUENTO_FK" Association="OfertasModel.CUPON_DESCUENTO_FK">
+            <End Role="DESCUENTO" EntitySet="DESCUENTO" />
+            <End Role="CUPON" EntitySet="CUPON" />
+          </AssociationSet>
+          <AssociationSet Name="CUPON_USUARIO_FK" Association="OfertasModel.CUPON_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="CUPON" EntitySet="CUPON" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_VENTA_OFERTA_FK" Association="OfertasModel.DETALLE_VENTA_OFERTA_FK">
+            <End Role="OFERTA" EntitySet="OFERTA" />
+            <End Role="DETALLE_VENTA" EntitySet="DETALLE_VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="VALO_OFER_DETALLE_VENTA_FK" Association="OfertasModel.VALO_OFER_DETALLE_VENTA_FK">
+            <End Role="DETALLE_VENTA" EntitySet="DETALLE_VENTA" />
+            <End Role="VALO_OFER" EntitySet="VALO_OFER" />
+          </AssociationSet>
+          <AssociationSet Name="EMPRESA_DIRECCION_FK" Association="OfertasModel.EMPRESA_DIRECCION_FK">
+            <End Role="DIRECCION" EntitySet="DIRECCION" />
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="PERSONA_DIRECCION_FK" Association="OfertasModel.PERSONA_DIRECCION_FK">
+            <End Role="DIRECCION" EntitySet="DIRECCION" />
+            <End Role="PERSONA" EntitySet="PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="TIENDA_DIRECCION_FK" Association="OfertasModel.TIENDA_DIRECCION_FK">
+            <End Role="DIRECCION" EntitySet="DIRECCION" />
+            <End Role="TIENDA" EntitySet="TIENDA" />
+          </AssociationSet>
+          <AssociationSet Name="TIENDA_EMPRESA_FK" Association="OfertasModel.TIENDA_EMPRESA_FK">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="TIENDA" EntitySet="TIENDA" />
+          </AssociationSet>
+          <AssociationSet Name="FAVORITO_OFERTA_FK" Association="OfertasModel.FAVORITO_OFERTA_FK">
+            <End Role="OFERTA" EntitySet="OFERTA" />
+            <End Role="FAVORITO" EntitySet="FAVORITO" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_FAVORITO_FK" Association="OfertasModel.USUARIO_FAVORITO_FK">
+            <End Role="FAVORITO" EntitySet="FAVORITO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="INTERES_USUARIO_USUARIO_FK" Association="OfertasModel.INTERES_USUARIO_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="INTERES_USUARIO" EntitySet="INTERES_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="OFERTA_PRODUCTO_FK" Association="OfertasModel.OFERTA_PRODUCTO_FK">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="OFERTA" EntitySet="OFERTA" />
+          </AssociationSet>
+          <AssociationSet Name="RESER_OFER_OFERTA_FK" Association="OfertasModel.RESER_OFER_OFERTA_FK">
+            <End Role="OFERTA" EntitySet="OFERTA" />
+            <End Role="RESER_OFER" EntitySet="RESER_OFER" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_PERFIL_FK" Association="OfertasModel.USUARIO_PERFIL_FK">
+            <End Role="PERFIL" EntitySet="PERFIL" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_PERSONA_FK" Association="OfertasModel.USUARIO_PERSONA_FK">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_TIENDA_FK" Association="OfertasModel.PRODUCTO_TIENDA_FK">
+            <End Role="TIENDA" EntitySet="TIENDA" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="PROVINCIA_REGION_FK" Association="OfertasModel.PROVINCIA_REGION_FK">
+            <End Role="REGION" EntitySet="REGION" />
+            <End Role="PROVINCIA" EntitySet="PROVINCIA" />
+          </AssociationSet>
+          <AssociationSet Name="RESER_OFER_RESER_ESTADO_FK" Association="OfertasModel.RESER_OFER_RESER_ESTADO_FK">
+            <End Role="RESER_ESTADO" EntitySet="RESER_ESTADO" />
+            <End Role="RESER_OFER" EntitySet="RESER_OFER" />
+          </AssociationSet>
+          <AssociationSet Name="RESER_OFER_USUARIO_FK" Association="OfertasModel.RESER_OFER_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="RESER_OFER" EntitySet="RESER_OFER" />
+          </AssociationSet>
+          <AssociationSet Name="VALO_OFER_USUARIO_FK" Association="OfertasModel.VALO_OFER_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="VALO_OFER" EntitySet="VALO_OFER" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BOLETA">
+          <Key>
+            <PropertyRef Name="BOL_NRO" />
+          </Key>
+          <Property Name="BOL_NRO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="BOL_FECHA" Type="DateTime" Nullable="false" />
+          <Property Name="BOL_TOTAL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="DETALLE_VENTA" Relationship="OfertasModel.DETALLE_VENTA_BOLETA_FK" FromRole="BOLETA" ToRole="DETALLE_VENTA" />
+        </EntityType>
+        <EntityType Name="CAT_PRODUCT">
+          <Key>
+            <PropertyRef Name="CAT_ID" />
+          </Key>
+          <Property Name="CAT_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="CAT_NOMBRE" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="INTERES_USUARIO_INTE_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="SUB_PRODUCTO_SUB_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="INTERES_USUARIO" Relationship="OfertasModel.CAT_PRODUCT_INTERES_USUARIO_FK" FromRole="CAT_PRODUCT" ToRole="INTERES_USUARIO" />
+          <NavigationProperty Name="SUB_PRODUCTO" Relationship="OfertasModel.CAT_PRODUCT_SUB_PRODUCTO_FK" FromRole="CAT_PRODUCT" ToRole="SUB_PRODUCTO" />
+          <NavigationProperty Name="PRODUCTO" Relationship="OfertasModel.PRODUCTO_CAT_PRODUCT_FK" FromRole="CAT_PRODUCT" ToRole="PRODUCTO" />
+        </EntityType>
+        <EntityType Name="COMUNA">
+          <Key>
+            <PropertyRef Name="COM_ID" />
+          </Key>
+          <Property Name="PROVINCIA_PROV_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="COM_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="COM_NOMBRE" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PROVINCIA" Relationship="OfertasModel.COMUNA_PROVINCIA_FK" FromRole="COMUNA" ToRole="PROVINCIA" />
+          <NavigationProperty Name="DIRECCION" Relationship="OfertasModel.DIRECCION_COMUNA_FK" FromRole="COMUNA" ToRole="DIRECCION" />
+        </EntityType>
+        <EntityType Name="CUPON">
+          <Key>
+            <PropertyRef Name="CUP_ID" />
+          </Key>
+          <Property Name="DESCUENTO_DESCUENTO_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="CUP_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USUARIO_USER_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DESCUENTO" Relationship="OfertasModel.CUPON_DESCUENTO_FK" FromRole="CUPON" ToRole="DESCUENTO" />
+          <NavigationProperty Name="USUARIO" Relationship="OfertasModel.CUPON_USUARIO_FK" FromRole="CUPON" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="DESCUENTO">
+          <Key>
+            <PropertyRef Name="DESCUENTO_ID" />
+          </Key>
+          <Property Name="DESCUENTO_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DESCUENTO_PORCENTAJE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="CUPON" Relationship="OfertasModel.CUPON_DESCUENTO_FK" FromRole="DESCUENTO" ToRole="CUPON" />
+        </EntityType>
+        <EntityType Name="DETALLE_VENTA">
+          <Key>
+            <PropertyRef Name="DETALLE_ID" />
+          </Key>
+          <Property Name="BOLETA_BOL_NRO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DETALLE_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="OFERTA_OFER_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="BOLETA" Relationship="OfertasModel.DETALLE_VENTA_BOLETA_FK" FromRole="DETALLE_VENTA" ToRole="BOLETA" />
+          <NavigationProperty Name="OFERTA" Relationship="OfertasModel.DETALLE_VENTA_OFERTA_FK" FromRole="DETALLE_VENTA" ToRole="OFERTA" />
+          <NavigationProperty Name="VALO_OFER" Relationship="OfertasModel.VALO_OFER_DETALLE_VENTA_FK" FromRole="DETALLE_VENTA" ToRole="VALO_OFER" />
+        </EntityType>
+        <EntityType Name="DIRECCION">
+          <Key>
+            <PropertyRef Name="DIR_ID" />
+          </Key>
+          <Property Name="COMUNA_COM_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DIR_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="CALLE" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="NRO_CASA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DEPTO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="COMUNA" Relationship="OfertasModel.DIRECCION_COMUNA_FK" FromRole="DIRECCION" ToRole="COMUNA" />
+          <NavigationProperty Name="EMPRESA" Relationship="OfertasModel.EMPRESA_DIRECCION_FK" FromRole="DIRECCION" ToRole="EMPRESA" />
+          <NavigationProperty Name="PERSONA" Relationship="OfertasModel.PERSONA_DIRECCION_FK" FromRole="DIRECCION" ToRole="PERSONA" />
+          <NavigationProperty Name="TIENDA" Relationship="OfertasModel.TIENDA_DIRECCION_FK" FromRole="DIRECCION" ToRole="TIENDA" />
+        </EntityType>
+        <EntityType Name="EMPRESA">
+          <Key>
+            <PropertyRef Name="EMP_ID" />
+          </Key>
+          <Property Name="DIRECCION_DIR_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="EMP_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="EMP_NOMBRE" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_RUT" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DIRECCION" Relationship="OfertasModel.EMPRESA_DIRECCION_FK" FromRole="EMPRESA" ToRole="DIRECCION" />
+          <NavigationProperty Name="TIENDA" Relationship="OfertasModel.TIENDA_EMPRESA_FK" FromRole="EMPRESA" ToRole="TIENDA" />
+        </EntityType>
+        <EntityType Name="FAVORITO">
+          <Key>
+            <PropertyRef Name="FAVO_ID" />
+          </Key>
+          <Property Name="FAVO_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="OFERTA_OFER_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="FAVO_NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OFERTA" Relationship="OfertasModel.FAVORITO_OFERTA_FK" FromRole="FAVORITO" ToRole="OFERTA" />
+          <NavigationProperty Name="USUARIO" Relationship="OfertasModel.USUARIO_FAVORITO_FK" FromRole="FAVORITO" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="INTERES_USUARIO">
+          <Key>
+            <PropertyRef Name="INTE_ID" />
+          </Key>
+          <Property Name="INTE_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USUARIO_USER_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="INTE_1" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="INTE_2" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="INTE_3" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="CAT_PRODUCT" Relationship="OfertasModel.CAT_PRODUCT_INTERES_USUARIO_FK" FromRole="INTERES_USUARIO" ToRole="CAT_PRODUCT" />
+          <NavigationProperty Name="USUARIO" Relationship="OfertasModel.INTERES_USUARIO_USUARIO_FK" FromRole="INTERES_USUARIO" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="OFERTA">
+          <Key>
+            <PropertyRef Name="OFER_ID" />
+          </Key>
+          <Property Name="PRODUCTO_PROD_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="OFER_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="OFER_ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PORCEN_DSCTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PRECIO_DSCTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="OFER_STOCK" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DETALLE_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="FAVO_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="DETALLE_VENTA" Relationship="OfertasModel.DETALLE_VENTA_OFERTA_FK" FromRole="OFERTA" ToRole="DETALLE_VENTA" />
+          <NavigationProperty Name="FAVORITO" Relationship="OfertasModel.FAVORITO_OFERTA_FK" FromRole="OFERTA" ToRole="FAVORITO" />
+          <NavigationProperty Name="PRODUCTO" Relationship="OfertasModel.OFERTA_PRODUCTO_FK" FromRole="OFERTA" ToRole="PRODUCTO" />
+          <NavigationProperty Name="RESER_OFER" Relationship="OfertasModel.RESER_OFER_OFERTA_FK" FromRole="OFERTA" ToRole="RESER_OFER" />
+        </EntityType>
+        <EntityType Name="PERFIL">
+          <Key>
+            <PropertyRef Name="PER_ID" />
+          </Key>
+          <Property Name="PER_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PER_NOMBRE" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="USUARIO" Relationship="OfertasModel.USUARIO_PERFIL_FK" FromRole="PERFIL" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="PERSONA">
+          <Key>
+            <PropertyRef Name="PERSO_ID" />
+            <PropertyRef Name="PERSO_RUT" />
+            <PropertyRef Name="PERSO_DV" />
+          </Key>
+          <Property Name="DIRECCION_DIR_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PERSO_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PERSO_RUT" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PERSO_DV" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PERSO_NOMBRE" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PERSO_APELLIDO" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PERSO_CORREO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DIRECCION" Relationship="OfertasModel.PERSONA_DIRECCION_FK" FromRole="PERSONA" ToRole="DIRECCION" />
+          <NavigationProperty Name="USUARIO" Relationship="OfertasModel.USUARIO_PERSONA_FK" FromRole="PERSONA" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="PRODUCTO">
+          <Key>
+            <PropertyRef Name="PROD_ID" />
+          </Key>
+          <Property Name="TIENDA_TIEN_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PROD_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PROD_NOMBRE" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PROD_DESCRIPCION" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="PRECIO_ORIGINAL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PROD_IMAGEN" Type="String" MaxLength="700" FixedLength="false" Unicode="false" />
+          <Property Name="CAT_PRODUCT_CAT_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="CAT_PRODUCT" Relationship="OfertasModel.PRODUCTO_CAT_PRODUCT_FK" FromRole="PRODUCTO" ToRole="CAT_PRODUCT" />
+          <NavigationProperty Name="OFERTA" Relationship="OfertasModel.OFERTA_PRODUCTO_FK" FromRole="PRODUCTO" ToRole="OFERTA" />
+          <NavigationProperty Name="TIENDA" Relationship="OfertasModel.PRODUCTO_TIENDA_FK" FromRole="PRODUCTO" ToRole="TIENDA" />
+        </EntityType>
+        <EntityType Name="PROVINCIA">
+          <Key>
+            <PropertyRef Name="PROV_ID" />
+          </Key>
+          <Property Name="REGION_REG_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PROV_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PROV_NOMBRE" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="COMUNA" Relationship="OfertasModel.COMUNA_PROVINCIA_FK" FromRole="PROVINCIA" ToRole="COMUNA" />
+          <NavigationProperty Name="REGION" Relationship="OfertasModel.PROVINCIA_REGION_FK" FromRole="PROVINCIA" ToRole="REGION" />
+        </EntityType>
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="REG_ID" />
+          </Key>
+          <Property Name="REG_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="REG_NOMBRE" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PROVINCIA" Relationship="OfertasModel.PROVINCIA_REGION_FK" FromRole="REGION" ToRole="PROVINCIA" />
+        </EntityType>
+        <EntityType Name="RESER_ESTADO">
+          <Key>
+            <PropertyRef Name="ESTADO_ID" />
+          </Key>
+          <Property Name="ESTADO_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ESTADO_NOMBRE" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RESER_OFER" Relationship="OfertasModel.RESER_OFER_RESER_ESTADO_FK" FromRole="RESER_ESTADO" ToRole="RESER_OFER" />
+        </EntityType>
+        <EntityType Name="RESER_OFER">
+          <Key>
+            <PropertyRef Name="RESE_ID" />
+          </Key>
+          <Property Name="RESE_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="RESE_FECHA" Type="DateTime" Nullable="false" />
+          <Property Name="RESER_ESTADO_ESTADO_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="OFERTA_OFER_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USUARIO_USER_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OFERTA" Relationship="OfertasModel.RESER_OFER_OFERTA_FK" FromRole="RESER_OFER" ToRole="OFERTA" />
+          <NavigationProperty Name="RESER_ESTADO" Relationship="OfertasModel.RESER_OFER_RESER_ESTADO_FK" FromRole="RESER_OFER" ToRole="RESER_ESTADO" />
+          <NavigationProperty Name="USUARIO" Relationship="OfertasModel.RESER_OFER_USUARIO_FK" FromRole="RESER_OFER" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="SUB_PRODUCTO">
+          <Key>
+            <PropertyRef Name="SUB_ID" />
+          </Key>
+          <Property Name="SUB_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="SUB_NOMBRE" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CAT_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="CAT_PRODUCT" Relationship="OfertasModel.CAT_PRODUCT_SUB_PRODUCTO_FK" FromRole="SUB_PRODUCTO" ToRole="CAT_PRODUCT" />
+        </EntityType>
+        <EntityType Name="TIENDA">
+          <Key>
+            <PropertyRef Name="TIEN_ID" />
+          </Key>
+          <Property Name="DIRECCION_DIR_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="EMPRESA_EMP_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="TIEN_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="TIEN_NOM" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DIRECCION" Relationship="OfertasModel.TIENDA_DIRECCION_FK" FromRole="TIENDA" ToRole="DIRECCION" />
+          <NavigationProperty Name="EMPRESA" Relationship="OfertasModel.TIENDA_EMPRESA_FK" FromRole="TIENDA" ToRole="EMPRESA" />
+          <NavigationProperty Name="PRODUCTO" Relationship="OfertasModel.PRODUCTO_TIENDA_FK" FromRole="TIENDA" ToRole="PRODUCTO" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="PERSONA_PERSO_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PERSONA_PERSO_RUT" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PERSONA_PERSO_DV" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="USER_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="USER_NOMBRE" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="USER_CONTRA" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PERFIL_PER_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="FAVORITO_FAVO_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="CUPON" Relationship="OfertasModel.CUPON_USUARIO_FK" FromRole="USUARIO" ToRole="CUPON" />
+          <NavigationProperty Name="FAVORITO" Relationship="OfertasModel.USUARIO_FAVORITO_FK" FromRole="USUARIO" ToRole="FAVORITO" />
+          <NavigationProperty Name="INTERES_USUARIO" Relationship="OfertasModel.INTERES_USUARIO_USUARIO_FK" FromRole="USUARIO" ToRole="INTERES_USUARIO" />
+          <NavigationProperty Name="PERFIL" Relationship="OfertasModel.USUARIO_PERFIL_FK" FromRole="USUARIO" ToRole="PERFIL" />
+          <NavigationProperty Name="PERSONA" Relationship="OfertasModel.USUARIO_PERSONA_FK" FromRole="USUARIO" ToRole="PERSONA" />
+          <NavigationProperty Name="RESER_OFER" Relationship="OfertasModel.RESER_OFER_USUARIO_FK" FromRole="USUARIO" ToRole="RESER_OFER" />
+          <NavigationProperty Name="VALO_OFER" Relationship="OfertasModel.VALO_OFER_USUARIO_FK" FromRole="USUARIO" ToRole="VALO_OFER" />
+        </EntityType>
+        <EntityType Name="VALO_OFER">
+          <Key>
+            <PropertyRef Name="VALO_ID" />
+          </Key>
+          <Property Name="DETALLE_VENTA_DETALLE_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="VALO_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="VALO_PUNTAJE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USUARIO_USER_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VALO_FECHA" Type="DateTime" Nullable="false" />
+          <Property Name="VALO_COMENTARIO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="VALO_FOTO" Type="String" MaxLength="700" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DETALLE_VENTA" Relationship="OfertasModel.VALO_OFER_DETALLE_VENTA_FK" FromRole="VALO_OFER" ToRole="DETALLE_VENTA" />
+          <NavigationProperty Name="USUARIO" Relationship="OfertasModel.VALO_OFER_USUARIO_FK" FromRole="VALO_OFER" ToRole="USUARIO" />
+        </EntityType>
+        <Association Name="DETALLE_VENTA_BOLETA_FK">
+          <End Type="OfertasModel.BOLETA" Role="BOLETA" Multiplicity="1" />
+          <End Type="OfertasModel.DETALLE_VENTA" Role="DETALLE_VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOLETA">
+              <PropertyRef Name="BOL_NRO" />
+            </Principal>
+            <Dependent Role="DETALLE_VENTA">
+              <PropertyRef Name="BOLETA_BOL_NRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAT_PRODUCT_INTERES_USUARIO_FK">
+          <End Type="OfertasModel.INTERES_USUARIO" Role="INTERES_USUARIO" Multiplicity="1" />
+          <End Type="OfertasModel.CAT_PRODUCT" Role="CAT_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INTERES_USUARIO">
+              <PropertyRef Name="INTE_ID" />
+            </Principal>
+            <Dependent Role="CAT_PRODUCT">
+              <PropertyRef Name="INTERES_USUARIO_INTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAT_PRODUCT_SUB_PRODUCTO_FK">
+          <End Type="OfertasModel.SUB_PRODUCTO" Role="SUB_PRODUCTO" Multiplicity="1" />
+          <End Type="OfertasModel.CAT_PRODUCT" Role="CAT_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUB_PRODUCTO">
+              <PropertyRef Name="SUB_ID" />
+            </Principal>
+            <Dependent Role="CAT_PRODUCT">
+              <PropertyRef Name="SUB_PRODUCTO_SUB_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_CAT_PRODUCT_FK">
+          <End Type="OfertasModel.CAT_PRODUCT" Role="CAT_PRODUCT" Multiplicity="1" />
+          <End Type="OfertasModel.PRODUCTO" Role="PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_PRODUCT">
+              <PropertyRef Name="CAT_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="CAT_PRODUCT_CAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="COMUNA_PROVINCIA_FK">
+          <End Type="OfertasModel.PROVINCIA" Role="PROVINCIA" Multiplicity="1" />
+          <End Type="OfertasModel.COMUNA" Role="COMUNA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVINCIA">
+              <PropertyRef Name="PROV_ID" />
+            </Principal>
+            <Dependent Role="COMUNA">
+              <PropertyRef Name="PROVINCIA_PROV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DIRECCION_COMUNA_FK">
+          <End Type="OfertasModel.COMUNA" Role="COMUNA" Multiplicity="1" />
+          <End Type="OfertasModel.DIRECCION" Role="DIRECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNA">
+              <PropertyRef Name="COM_ID" />
+            </Principal>
+            <Dependent Role="DIRECCION">
+              <PropertyRef Name="COMUNA_COM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CUPON_DESCUENTO_FK">
+          <End Type="OfertasModel.DESCUENTO" Role="DESCUENTO" Multiplicity="1" />
+          <End Type="OfertasModel.CUPON" Role="CUPON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DESCUENTO">
+              <PropertyRef Name="DESCUENTO_ID" />
+            </Principal>
+            <Dependent Role="CUPON">
+              <PropertyRef Name="DESCUENTO_DESCUENTO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CUPON_USUARIO_FK">
+          <End Type="OfertasModel.USUARIO" Role="USUARIO" Multiplicity="1" />
+          <End Type="OfertasModel.CUPON" Role="CUPON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="CUPON">
+              <PropertyRef Name="USUARIO_USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_VENTA_OFERTA_FK">
+          <End Type="OfertasModel.OFERTA" Role="OFERTA" Multiplicity="1" />
+          <End Type="OfertasModel.DETALLE_VENTA" Role="DETALLE_VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OFERTA">
+              <PropertyRef Name="OFER_ID" />
+            </Principal>
+            <Dependent Role="DETALLE_VENTA">
+              <PropertyRef Name="OFERTA_OFER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VALO_OFER_DETALLE_VENTA_FK">
+          <End Type="OfertasModel.DETALLE_VENTA" Role="DETALLE_VENTA" Multiplicity="1" />
+          <End Type="OfertasModel.VALO_OFER" Role="VALO_OFER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DETALLE_VENTA">
+              <PropertyRef Name="DETALLE_ID" />
+            </Principal>
+            <Dependent Role="VALO_OFER">
+              <PropertyRef Name="DETALLE_VENTA_DETALLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPRESA_DIRECCION_FK">
+          <End Type="OfertasModel.DIRECCION" Role="DIRECCION" Multiplicity="1" />
+          <End Type="OfertasModel.EMPRESA" Role="EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIRECCION">
+              <PropertyRef Name="DIR_ID" />
+            </Principal>
+            <Dependent Role="EMPRESA">
+              <PropertyRef Name="DIRECCION_DIR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERSONA_DIRECCION_FK">
+          <End Type="OfertasModel.DIRECCION" Role="DIRECCION" Multiplicity="1" />
+          <End Type="OfertasModel.PERSONA" Role="PERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIRECCION">
+              <PropertyRef Name="DIR_ID" />
+            </Principal>
+            <Dependent Role="PERSONA">
+              <PropertyRef Name="DIRECCION_DIR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TIENDA_DIRECCION_FK">
+          <End Type="OfertasModel.DIRECCION" Role="DIRECCION" Multiplicity="1" />
+          <End Type="OfertasModel.TIENDA" Role="TIENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIRECCION">
+              <PropertyRef Name="DIR_ID" />
+            </Principal>
+            <Dependent Role="TIENDA">
+              <PropertyRef Name="DIRECCION_DIR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TIENDA_EMPRESA_FK">
+          <End Type="OfertasModel.EMPRESA" Role="EMPRESA" Multiplicity="1" />
+          <End Type="OfertasModel.TIENDA" Role="TIENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="EMP_ID" />
+            </Principal>
+            <Dependent Role="TIENDA">
+              <PropertyRef Name="EMPRESA_EMP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FAVORITO_OFERTA_FK">
+          <End Type="OfertasModel.OFERTA" Role="OFERTA" Multiplicity="1" />
+          <End Type="OfertasModel.FAVORITO" Role="FAVORITO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OFERTA">
+              <PropertyRef Name="OFER_ID" />
+            </Principal>
+            <Dependent Role="FAVORITO">
+              <PropertyRef Name="OFERTA_OFER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_FAVORITO_FK">
+          <End Type="OfertasModel.FAVORITO" Role="FAVORITO" Multiplicity="1" />
+          <End Type="OfertasModel.USUARIO" Role="USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FAVORITO">
+              <PropertyRef Name="FAVO_ID" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="FAVORITO_FAVO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTERES_USUARIO_USUARIO_FK">
+          <End Type="OfertasModel.USUARIO" Role="USUARIO" Multiplicity="1" />
+          <End Type="OfertasModel.INTERES_USUARIO" Role="INTERES_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="INTERES_USUARIO">
+              <PropertyRef Name="USUARIO_USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OFERTA_PRODUCTO_FK">
+          <End Type="OfertasModel.PRODUCTO" Role="PRODUCTO" Multiplicity="1" />
+          <End Type="OfertasModel.OFERTA" Role="OFERTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="PROD_ID" />
+            </Principal>
+            <Dependent Role="OFERTA">
+              <PropertyRef Name="PRODUCTO_PROD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RESER_OFER_OFERTA_FK">
+          <End Type="OfertasModel.OFERTA" Role="OFERTA" Multiplicity="1" />
+          <End Type="OfertasModel.RESER_OFER" Role="RESER_OFER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OFERTA">
+              <PropertyRef Name="OFER_ID" />
+            </Principal>
+            <Dependent Role="RESER_OFER">
+              <PropertyRef Name="OFERTA_OFER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_PERFIL_FK">
+          <End Type="OfertasModel.PERFIL" Role="PERFIL" Multiplicity="1" />
+          <End Type="OfertasModel.USUARIO" Role="USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERFIL">
+              <PropertyRef Name="PER_ID" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="PERFIL_PER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_PERSONA_FK">
+          <End Type="OfertasModel.PERSONA" Role="PERSONA" Multiplicity="1" />
+          <End Type="OfertasModel.USUARIO" Role="USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="PERSO_ID" />
+              <PropertyRef Name="PERSO_RUT" />
+              <PropertyRef Name="PERSO_DV" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="PERSONA_PERSO_ID" />
+              <PropertyRef Name="PERSONA_PERSO_RUT" />
+              <PropertyRef Name="PERSONA_PERSO_DV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_TIENDA_FK">
+          <End Type="OfertasModel.TIENDA" Role="TIENDA" Multiplicity="1" />
+          <End Type="OfertasModel.PRODUCTO" Role="PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIENDA">
+              <PropertyRef Name="TIEN_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="TIENDA_TIEN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PROVINCIA_REGION_FK">
+          <End Type="OfertasModel.REGION" Role="REGION" Multiplicity="1" />
+          <End Type="OfertasModel.PROVINCIA" Role="PROVINCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION">
+              <PropertyRef Name="REG_ID" />
+            </Principal>
+            <Dependent Role="PROVINCIA">
+              <PropertyRef Name="REGION_REG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RESER_OFER_RESER_ESTADO_FK">
+          <End Type="OfertasModel.RESER_ESTADO" Role="RESER_ESTADO" Multiplicity="1" />
+          <End Type="OfertasModel.RESER_OFER" Role="RESER_OFER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESER_ESTADO">
+              <PropertyRef Name="ESTADO_ID" />
+            </Principal>
+            <Dependent Role="RESER_OFER">
+              <PropertyRef Name="RESER_ESTADO_ESTADO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RESER_OFER_USUARIO_FK">
+          <End Type="OfertasModel.USUARIO" Role="USUARIO" Multiplicity="1" />
+          <End Type="OfertasModel.RESER_OFER" Role="RESER_OFER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="RESER_OFER">
+              <PropertyRef Name="USUARIO_USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VALO_OFER_USUARIO_FK">
+          <End Type="OfertasModel.USUARIO" Role="USUARIO" Multiplicity="1" />
+          <End Type="OfertasModel.VALO_OFER" Role="VALO_OFER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="VALO_OFER">
+              <PropertyRef Name="USUARIO_USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OfertasModelStoreContainer" CdmEntityContainer="OfertasEntities">
+          <EntitySetMapping Name="BOLETA">
+            <EntityTypeMapping TypeName="OfertasModel.BOLETA">
+              <MappingFragment StoreEntitySet="BOLETA">
+                <ScalarProperty Name="BOL_TOTAL" ColumnName="BOL_TOTAL" />
+                <ScalarProperty Name="BOL_FECHA" ColumnName="BOL_FECHA" />
+                <ScalarProperty Name="BOL_NRO" ColumnName="BOL_NRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAT_PRODUCT">
+            <EntityTypeMapping TypeName="OfertasModel.CAT_PRODUCT">
+              <MappingFragment StoreEntitySet="CAT_PRODUCT">
+                <ScalarProperty Name="SUB_PRODUCTO_SUB_ID" ColumnName="SUB_PRODUCTO_SUB_ID" />
+                <ScalarProperty Name="INTERES_USUARIO_INTE_ID" ColumnName="INTERES_USUARIO_INTE_ID" />
+                <ScalarProperty Name="CAT_NOMBRE" ColumnName="CAT_NOMBRE" />
+                <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMUNA">
+            <EntityTypeMapping TypeName="OfertasModel.COMUNA">
+              <MappingFragment StoreEntitySet="COMUNA">
+                <ScalarProperty Name="COM_NOMBRE" ColumnName="COM_NOMBRE" />
+                <ScalarProperty Name="COM_ID" ColumnName="COM_ID" />
+                <ScalarProperty Name="PROVINCIA_PROV_ID" ColumnName="PROVINCIA_PROV_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUPON">
+            <EntityTypeMapping TypeName="OfertasModel.CUPON">
+              <MappingFragment StoreEntitySet="CUPON">
+                <ScalarProperty Name="USUARIO_USER_ID" ColumnName="USUARIO_USER_ID" />
+                <ScalarProperty Name="CUP_ID" ColumnName="CUP_ID" />
+                <ScalarProperty Name="DESCUENTO_DESCUENTO_ID" ColumnName="DESCUENTO_DESCUENTO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DESCUENTO">
+            <EntityTypeMapping TypeName="OfertasModel.DESCUENTO">
+              <MappingFragment StoreEntitySet="DESCUENTO">
+                <ScalarProperty Name="DESCUENTO_PORCENTAJE" ColumnName="DESCUENTO_PORCENTAJE" />
+                <ScalarProperty Name="DESCUENTO_ID" ColumnName="DESCUENTO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLE_VENTA">
+            <EntityTypeMapping TypeName="OfertasModel.DETALLE_VENTA">
+              <MappingFragment StoreEntitySet="DETALLE_VENTA">
+                <ScalarProperty Name="OFERTA_OFER_ID" ColumnName="OFERTA_OFER_ID" />
+                <ScalarProperty Name="DETALLE_ID" ColumnName="DETALLE_ID" />
+                <ScalarProperty Name="BOLETA_BOL_NRO" ColumnName="BOLETA_BOL_NRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIRECCION">
+            <EntityTypeMapping TypeName="OfertasModel.DIRECCION">
+              <MappingFragment StoreEntitySet="DIRECCION">
+                <ScalarProperty Name="DEPTO" ColumnName="DEPTO" />
+                <ScalarProperty Name="NRO_CASA" ColumnName="NRO_CASA" />
+                <ScalarProperty Name="CALLE" ColumnName="CALLE" />
+                <ScalarProperty Name="DIR_ID" ColumnName="DIR_ID" />
+                <ScalarProperty Name="COMUNA_COM_ID" ColumnName="COMUNA_COM_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPRESA">
+            <EntityTypeMapping TypeName="OfertasModel.EMPRESA">
+              <MappingFragment StoreEntitySet="EMPRESA">
+                <ScalarProperty Name="EMP_RUT" ColumnName="EMP_RUT" />
+                <ScalarProperty Name="EMP_NOMBRE" ColumnName="EMP_NOMBRE" />
+                <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+                <ScalarProperty Name="DIRECCION_DIR_ID" ColumnName="DIRECCION_DIR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FAVORITO">
+            <EntityTypeMapping TypeName="OfertasModel.FAVORITO">
+              <MappingFragment StoreEntitySet="FAVORITO">
+                <ScalarProperty Name="FAVO_NOMBRE" ColumnName="FAVO_NOMBRE" />
+                <ScalarProperty Name="OFERTA_OFER_ID" ColumnName="OFERTA_OFER_ID" />
+                <ScalarProperty Name="FAVO_ID" ColumnName="FAVO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INTERES_USUARIO">
+            <EntityTypeMapping TypeName="OfertasModel.INTERES_USUARIO">
+              <MappingFragment StoreEntitySet="INTERES_USUARIO">
+                <ScalarProperty Name="INTE_3" ColumnName="INTE_3" />
+                <ScalarProperty Name="INTE_2" ColumnName="INTE_2" />
+                <ScalarProperty Name="INTE_1" ColumnName="INTE_1" />
+                <ScalarProperty Name="USUARIO_USER_ID" ColumnName="USUARIO_USER_ID" />
+                <ScalarProperty Name="INTE_ID" ColumnName="INTE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OFERTA">
+            <EntityTypeMapping TypeName="OfertasModel.OFERTA">
+              <MappingFragment StoreEntitySet="OFERTA">
+                <ScalarProperty Name="FAVO_ID" ColumnName="FAVO_ID" />
+                <ScalarProperty Name="DETALLE_ID" ColumnName="DETALLE_ID" />
+                <ScalarProperty Name="OFER_STOCK" ColumnName="OFER_STOCK" />
+                <ScalarProperty Name="PRECIO_DSCTO" ColumnName="PRECIO_DSCTO" />
+                <ScalarProperty Name="PORCEN_DSCTO" ColumnName="PORCEN_DSCTO" />
+                <ScalarProperty Name="OFER_ESTADO" ColumnName="OFER_ESTADO" />
+                <ScalarProperty Name="OFER_ID" ColumnName="OFER_ID" />
+                <ScalarProperty Name="PRODUCTO_PROD_ID" ColumnName="PRODUCTO_PROD_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERFIL">
+            <EntityTypeMapping TypeName="OfertasModel.PERFIL">
+              <MappingFragment StoreEntitySet="PERFIL">
+                <ScalarProperty Name="PER_NOMBRE" ColumnName="PER_NOMBRE" />
+                <ScalarProperty Name="PER_ID" ColumnName="PER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSONA">
+            <EntityTypeMapping TypeName="OfertasModel.PERSONA">
+              <MappingFragment StoreEntitySet="PERSONA">
+                <ScalarProperty Name="PERSO_CORREO" ColumnName="PERSO_CORREO" />
+                <ScalarProperty Name="PERSO_APELLIDO" ColumnName="PERSO_APELLIDO" />
+                <ScalarProperty Name="PERSO_NOMBRE" ColumnName="PERSO_NOMBRE" />
+                <ScalarProperty Name="PERSO_DV" ColumnName="PERSO_DV" />
+                <ScalarProperty Name="PERSO_RUT" ColumnName="PERSO_RUT" />
+                <ScalarProperty Name="PERSO_ID" ColumnName="PERSO_ID" />
+                <ScalarProperty Name="DIRECCION_DIR_ID" ColumnName="DIRECCION_DIR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTO">
+            <EntityTypeMapping TypeName="OfertasModel.PRODUCTO">
+              <MappingFragment StoreEntitySet="PRODUCTO">
+                <ScalarProperty Name="CAT_PRODUCT_CAT_ID" ColumnName="CAT_PRODUCT_CAT_ID" />
+                <ScalarProperty Name="PROD_IMAGEN" ColumnName="PROD_IMAGEN" />
+                <ScalarProperty Name="PRECIO_ORIGINAL" ColumnName="PRECIO_ORIGINAL" />
+                <ScalarProperty Name="PROD_DESCRIPCION" ColumnName="PROD_DESCRIPCION" />
+                <ScalarProperty Name="PROD_NOMBRE" ColumnName="PROD_NOMBRE" />
+                <ScalarProperty Name="PROD_ID" ColumnName="PROD_ID" />
+                <ScalarProperty Name="TIENDA_TIEN_ID" ColumnName="TIENDA_TIEN_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROVINCIA">
+            <EntityTypeMapping TypeName="OfertasModel.PROVINCIA">
+              <MappingFragment StoreEntitySet="PROVINCIA">
+                <ScalarProperty Name="PROV_NOMBRE" ColumnName="PROV_NOMBRE" />
+                <ScalarProperty Name="PROV_ID" ColumnName="PROV_ID" />
+                <ScalarProperty Name="REGION_REG_ID" ColumnName="REGION_REG_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REGION">
+            <EntityTypeMapping TypeName="OfertasModel.REGION">
+              <MappingFragment StoreEntitySet="REGION">
+                <ScalarProperty Name="REG_NOMBRE" ColumnName="REG_NOMBRE" />
+                <ScalarProperty Name="REG_ID" ColumnName="REG_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESER_ESTADO">
+            <EntityTypeMapping TypeName="OfertasModel.RESER_ESTADO">
+              <MappingFragment StoreEntitySet="RESER_ESTADO">
+                <ScalarProperty Name="ESTADO_NOMBRE" ColumnName="ESTADO_NOMBRE" />
+                <ScalarProperty Name="ESTADO_ID" ColumnName="ESTADO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESER_OFER">
+            <EntityTypeMapping TypeName="OfertasModel.RESER_OFER">
+              <MappingFragment StoreEntitySet="RESER_OFER">
+                <ScalarProperty Name="USUARIO_USER_ID" ColumnName="USUARIO_USER_ID" />
+                <ScalarProperty Name="OFERTA_OFER_ID" ColumnName="OFERTA_OFER_ID" />
+                <ScalarProperty Name="RESER_ESTADO_ESTADO_ID" ColumnName="RESER_ESTADO_ESTADO_ID" />
+                <ScalarProperty Name="RESE_FECHA" ColumnName="RESE_FECHA" />
+                <ScalarProperty Name="RESE_ID" ColumnName="RESE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUB_PRODUCTO">
+            <EntityTypeMapping TypeName="OfertasModel.SUB_PRODUCTO">
+              <MappingFragment StoreEntitySet="SUB_PRODUCTO">
+                <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+                <ScalarProperty Name="SUB_NOMBRE" ColumnName="SUB_NOMBRE" />
+                <ScalarProperty Name="SUB_ID" ColumnName="SUB_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIENDA">
+            <EntityTypeMapping TypeName="OfertasModel.TIENDA">
+              <MappingFragment StoreEntitySet="TIENDA">
+                <ScalarProperty Name="TIEN_NOM" ColumnName="TIEN_NOM" />
+                <ScalarProperty Name="TIEN_ID" ColumnName="TIEN_ID" />
+                <ScalarProperty Name="EMPRESA_EMP_ID" ColumnName="EMPRESA_EMP_ID" />
+                <ScalarProperty Name="DIRECCION_DIR_ID" ColumnName="DIRECCION_DIR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="OfertasModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="FAVORITO_FAVO_ID" ColumnName="FAVORITO_FAVO_ID" />
+                <ScalarProperty Name="PERFIL_PER_ID" ColumnName="PERFIL_PER_ID" />
+                <ScalarProperty Name="USER_CONTRA" ColumnName="USER_CONTRA" />
+                <ScalarProperty Name="USER_NOMBRE" ColumnName="USER_NOMBRE" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="PERSONA_PERSO_DV" ColumnName="PERSONA_PERSO_DV" />
+                <ScalarProperty Name="PERSONA_PERSO_RUT" ColumnName="PERSONA_PERSO_RUT" />
+                <ScalarProperty Name="PERSONA_PERSO_ID" ColumnName="PERSONA_PERSO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VALO_OFER">
+            <EntityTypeMapping TypeName="OfertasModel.VALO_OFER">
+              <MappingFragment StoreEntitySet="VALO_OFER">
+                <ScalarProperty Name="VALO_FOTO" ColumnName="VALO_FOTO" />
+                <ScalarProperty Name="VALO_COMENTARIO" ColumnName="VALO_COMENTARIO" />
+                <ScalarProperty Name="VALO_FECHA" ColumnName="VALO_FECHA" />
+                <ScalarProperty Name="USUARIO_USER_ID" ColumnName="USUARIO_USER_ID" />
+                <ScalarProperty Name="VALO_PUNTAJE" ColumnName="VALO_PUNTAJE" />
+                <ScalarProperty Name="VALO_ID" ColumnName="VALO_ID" />
+                <ScalarProperty Name="DETALLE_VENTA_DETALLE_ID" ColumnName="DETALLE_VENTA_DETALLE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

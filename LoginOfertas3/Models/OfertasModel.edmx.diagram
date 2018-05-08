@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="170ec9ed747940fba0efccacc5fc3d80" Name="Diagram1" ZoomLevel="28">
+        <EntityTypeShape EntityType="OfertasModel.BOLETA" Width="1.5" PointX="16.5" PointY="5.125" />
+        <EntityTypeShape EntityType="OfertasModel.CAT_PRODUCT" Width="1.5" PointX="25.5" PointY="15" />
+        <EntityTypeShape EntityType="OfertasModel.COMUNA" Width="1.5" PointX="5.25" PointY="8.25" />
+        <EntityTypeShape EntityType="OfertasModel.CUPON" Width="1.5" PointX="26.25" PointY="9.25" />
+        <EntityTypeShape EntityType="OfertasModel.DESCUENTO" Width="1.5" PointX="24" PointY="12.375" />
+        <EntityTypeShape EntityType="OfertasModel.DETALLE_VENTA" Width="1.5" PointX="18.75" PointY="9" />
+        <EntityTypeShape EntityType="OfertasModel.DIRECCION" Width="1.5" PointX="7.5" PointY="7.875" />
+        <EntityTypeShape EntityType="OfertasModel.EMPRESA" Width="1.5" PointX="9.75" PointY="10" />
+        <EntityTypeShape EntityType="OfertasModel.FAVORITO" Width="1.5" PointX="18.75" PointY="12" />
+        <EntityTypeShape EntityType="OfertasModel.INTERES_USUARIO" Width="1.5" PointX="23.25" PointY="15" />
+        <EntityTypeShape EntityType="OfertasModel.OFERTA" Width="1.5" PointX="16.5" PointY="8.375" />
+        <EntityTypeShape EntityType="OfertasModel.PERFIL" Width="1.5" PointX="18.75" PointY="6.375" />
+        <EntityTypeShape EntityType="OfertasModel.PERSONA" Width="1.5" PointX="9.75" PointY="6.5" />
+        <EntityTypeShape EntityType="OfertasModel.PRODUCTO" Width="1.5" PointX="14.25" PointY="8.5" />
+        <EntityTypeShape EntityType="OfertasModel.PROVINCIA" Width="1.5" PointX="3" PointY="8.25" />
+        <EntityTypeShape EntityType="OfertasModel.REGION" Width="1.5" PointX="0.75" PointY="8.5" />
+        <EntityTypeShape EntityType="OfertasModel.RESER_ESTADO" Width="1.5" PointX="24" PointY="6.375" />
+        <EntityTypeShape EntityType="OfertasModel.RESER_OFER" Width="1.5" PointX="26.25" PointY="5.875" />
+        <EntityTypeShape EntityType="OfertasModel.SUB_PRODUCTO" Width="1.5" PointX="23.25" PointY="18.125" />
+        <EntityTypeShape EntityType="OfertasModel.TIENDA" Width="1.5" PointX="12" PointY="8.875" />
+        <EntityTypeShape EntityType="OfertasModel.USUARIO" Width="1.5" PointX="21" PointY="8.25" />
+        <EntityTypeShape EntityType="OfertasModel.VALO_OFER" Width="1.5" PointX="23.25" PointY="8.875" />
+        <AssociationConnector Association="OfertasModel.DETALLE_VENTA_BOLETA_FK" />
+        <AssociationConnector Association="OfertasModel.CAT_PRODUCT_INTERES_USUARIO_FK" />
+        <AssociationConnector Association="OfertasModel.CAT_PRODUCT_SUB_PRODUCTO_FK" />
+        <AssociationConnector Association="OfertasModel.PRODUCTO_CAT_PRODUCT_FK" />
+        <AssociationConnector Association="OfertasModel.COMUNA_PROVINCIA_FK" />
+        <AssociationConnector Association="OfertasModel.DIRECCION_COMUNA_FK" />
+        <AssociationConnector Association="OfertasModel.CUPON_DESCUENTO_FK" />
+        <AssociationConnector Association="OfertasModel.CUPON_USUARIO_FK" />
+        <AssociationConnector Association="OfertasModel.DETALLE_VENTA_OFERTA_FK" />
+        <AssociationConnector Association="OfertasModel.VALO_OFER_DETALLE_VENTA_FK" />
+        <AssociationConnector Association="OfertasModel.EMPRESA_DIRECCION_FK" />
+        <AssociationConnector Association="OfertasModel.PERSONA_DIRECCION_FK" />
+        <AssociationConnector Association="OfertasModel.TIENDA_DIRECCION_FK" />
+        <AssociationConnector Association="OfertasModel.TIENDA_EMPRESA_FK" />
+        <AssociationConnector Association="OfertasModel.FAVORITO_OFERTA_FK" />
+        <AssociationConnector Association="OfertasModel.USUARIO_FAVORITO_FK" />
+        <AssociationConnector Association="OfertasModel.INTERES_USUARIO_USUARIO_FK" />
+        <AssociationConnector Association="OfertasModel.OFERTA_PRODUCTO_FK" />
+        <AssociationConnector Association="OfertasModel.RESER_OFER_OFERTA_FK" />
+        <AssociationConnector Association="OfertasModel.USUARIO_PERFIL_FK" />
+        <AssociationConnector Association="OfertasModel.USUARIO_PERSONA_FK" />
+        <AssociationConnector Association="OfertasModel.PRODUCTO_TIENDA_FK" />
+        <AssociationConnector Association="OfertasModel.PROVINCIA_REGION_FK" />
+        <AssociationConnector Association="OfertasModel.RESER_OFER_RESER_ESTADO_FK" />
+        <AssociationConnector Association="OfertasModel.RESER_OFER_USUARIO_FK" />
+        <AssociationConnector Association="OfertasModel.VALO_OFER_USUARIO_FK" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

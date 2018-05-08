@@ -1,0 +1,45 @@
+﻿@model IEnumerable<LoginOfertas3.Models.EMPRESA>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EMP_NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMP_RUT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIRECCION.CALLE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMP_NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMP_RUT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIRECCION.CALLE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EMP_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EMP_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EMP_ID })
+        </td>
+    </tr>
+}
+
+</table>
