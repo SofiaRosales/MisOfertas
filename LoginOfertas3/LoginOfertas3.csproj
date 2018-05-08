@@ -350,7 +350,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\EMPRESAs\Create.cshtml" />
+    <Content Include="Models\Create.cshtml" />
     <Content Include="Views\EMPRESAs\Delete.cshtml" />
     <Content Include="Views\EMPRESAs\Details.cshtml" />
     <Content Include="Views\EMPRESAs\Edit.cshtml" />
