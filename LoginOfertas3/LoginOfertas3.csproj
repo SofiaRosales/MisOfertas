@@ -362,6 +362,7 @@
     <Content Include="Views\REGIONs\Edit.cshtml" />
     <Content Include="Views\REGIONs\Index.cshtml" />
     <Content Include="Views\Administrador\Index.cshtml" />
+    <Content Include="Views\Administrador\Administrar_empresas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
