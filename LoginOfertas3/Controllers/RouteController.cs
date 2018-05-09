@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace LoginOfertas3.Controllers
 {
-    public class AdministradorController : Controller
+    public class RouteController : Controller
     {
-        // GET: Administrador
+        // GET: Route
         public ActionResult Index()
         {
             return View();

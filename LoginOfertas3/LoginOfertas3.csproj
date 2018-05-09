@@ -62,10 +62,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http.Formatting">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -74,14 +70,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Http">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -191,9 +179,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\ConsumidorController.cs" />
+    <Compile Include="Controllers\AdministradorController.cs" />
     <Compile Include="Controllers\REGIONsController.cs" />
-    <Compile Include="Controllers\ValuesController1.cs" />
+    <Compile Include="Controllers\RouteController.cs" />
     <Compile Include="Models\BOLETA.cs">
       <DependentUpon>OfertasModel.tt</DependentUpon>
     </Compile>
@@ -364,7 +352,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\EMPRESAs\Create.cshtml" />
+    <Content Include="Models\Create.cshtml" />
     <Content Include="Views\EMPRESAs\Delete.cshtml" />
     <Content Include="Views\EMPRESAs\Details.cshtml" />
     <Content Include="Views\EMPRESAs\Edit.cshtml" />
@@ -374,15 +362,12 @@
     <Content Include="Views\REGIONs\Details.cshtml" />
     <Content Include="Views\REGIONs\Edit.cshtml" />
     <Content Include="Views\REGIONs\Index.cshtml" />
-    <Content Include="Views\Consumidor\Index.cshtml" />
-    <Content Include="Views\Consumidor\Edit.cshtml" />
-    <Content Include="Views\Consumidor\Delete.cshtml" />
-    <Content Include="Views\Consumidor\Details.cshtml" />
-    <Content Include="Views\Consumidor\Create.cshtml" />
+    <Content Include="Views\Administrador\Index.cshtml" />
+    <Content Include="Views\Administrador\Administrar_empresas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Administrador\" />
+    <Folder Include="Views\Route\" />
     <Folder Include="Views\Tienda\" />
   </ItemGroup>
   <ItemGroup>
