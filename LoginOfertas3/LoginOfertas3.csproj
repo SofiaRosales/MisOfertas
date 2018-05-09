@@ -181,6 +181,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
     <Compile Include="Controllers\REGIONsController.cs" />
+    <Compile Include="Controllers\RouteController.cs" />
     <Compile Include="Models\BOLETA.cs">
       <DependentUpon>OfertasModel.tt</DependentUpon>
     </Compile>
@@ -366,6 +367,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Route\" />
     <Folder Include="Views\Tienda\" />
   </ItemGroup>
   <ItemGroup>
