@@ -13,6 +13,5 @@ namespace LoginOfertas3.Controllers
         {
             return View();
         }
-
     }
 }
