@@ -180,6 +180,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
+    <Compile Include="Controllers\ConsumidorController.cs" />
     <Compile Include="Controllers\REGIONsController.cs" />
     <Compile Include="Controllers\RouteController.cs" />
     <Compile Include="Models\BOLETA.cs">
@@ -331,7 +332,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Consumidor\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -374,6 +375,8 @@
     <Content Include="Views\Administrador\Adm_perfil.cshtml" />
     <Content Include="Views\Administrador\UP_encargado.cshtml" />
     <Content Include="Views\Administrador\ADD_encargado.cshtml" />
+    <Content Include="Views\Consumidor\Detalle_oferta.cshtml" />
+    <Content Include="Views\Consumidor\Puntos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
