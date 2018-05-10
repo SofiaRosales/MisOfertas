@@ -363,7 +363,7 @@
     <Content Include="Views\REGIONs\Edit.cshtml" />
     <Content Include="Views\REGIONs\Index.cshtml" />
     <Content Include="Views\Administrador\Index.cshtml" />
-    <Content Include="Views\Administrador\Administrar_empresas.cshtml" />
+    <Content Include="Views\Administrador\Adm_empresas.cshtml" />
     <Content Include="Views\Shared_adm\_Layout.cshtml" />
     <Content Include="Views\Shared_adm\_LoginPartial.cshtml" />
     <Content Include="Views\Shared_adm\Error.cshtml" />
@@ -372,6 +372,8 @@
     <Content Include="Views\Administrador\ADD_empresa.cshtml" />
     <Content Include="Views\Administrador\UP_empresa.cshtml" />
     <Content Include="Views\Administrador\Adm_perfil.cshtml" />
+    <Content Include="Views\Administrador\UP_encargado.cshtml" />
+    <Content Include="Views\Administrador\ADD_encargado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

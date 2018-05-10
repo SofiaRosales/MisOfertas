@@ -12,7 +12,7 @@
         <fieldset>
             <legend>Modificar empresa</legend>
             
-                <table width="100%">
+                <table style="width:80%">
                     <tr>
                         <td>
                             <div class="form-group">
@@ -20,8 +20,9 @@
                                 <input class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Nombre empresa">
                             </div>
                             <div class="form-group">
-                                <label>RUT</label>
-                                <input class="form-control" id="rut" aria-describedby="emailHelp" placeholder="RUT">
+                                <label>RUT</label><br />
+                                <input class="form-controlser" id="rut" placeholder="11.111.111" style="width:41%"><label>-</label>
+                                <input class="form-controlser" id="rut" placeholder="1" style="width:7%">
                             </div>
                         </td>   
 
@@ -55,15 +56,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Dirección</label>
-                                    <input class="form-control" id="direccion" placeholder="Dirección">
+                                    <input class="form-control" id="direccion" placeholder="Dirección" style="width:100%">
                                 </div>
                         </td>
                         
                     </tr>
 
-                    <td><button type="button" class="btn btn-success" style="width:150px" onclick="location.href='@Url.Action("Administrar_empresas","Administrador")'">Cancelar</button></td>
+                    <td><button type="button" class="btn btn-success" style="width:150px" onclick="location.href='@Url.Action("Adm_empresas","Administrador")'">Cancelar</button></td>
 
-                    <td><button type="submit" class="btn btn-primary" style="width:150px">Guardar</button></td>
+                    <td><button type="submit" class="btn btn-primary" style="width:150px; float:right">Guardar</button></td>
                     
                    
                 </table>

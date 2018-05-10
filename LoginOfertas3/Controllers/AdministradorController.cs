@@ -15,12 +15,11 @@ namespace LoginOfertas3.Controllers
         }
 
 
-        // GET: Rutas
-        public ActionResult Administrar_empresas()
+        // GET: Rutas Empresa
+        public ActionResult Adm_empresas()
         {
             return View();
         }
-
         public ActionResult ADD_empresa()
         {
             return View();
@@ -30,6 +29,20 @@ namespace LoginOfertas3.Controllers
             return View();
         }
         public ActionResult Adm_perfil()
+        {
+            return View();
+        }
+
+        // GET: Rutas Administrar Encargados de tienda
+        public ActionResult Adm_encargado()
+        {
+            return View();
+        }
+        public ActionResult UP_encargado()
+        {
+            return View();
+        }
+        public ActionResult ADD_encargado()
         {
             return View();
         }

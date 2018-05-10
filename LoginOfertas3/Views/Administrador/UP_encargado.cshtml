@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Agregar empresa";
+    ViewBag.Title = "Modificar empresa";
     Layout = "~/Views/Shared_adm/_Layout.cshtml";
 }
 <br />
@@ -10,19 +10,23 @@
 
     <form>
         <fieldset>
-            <legend>Agregar empresa</legend>
+            <legend>Modificar Encargado</legend>
             
-                <table width="80%">
+                <table style="width:80%">
                     <tr>
                         <td>
                             <div class="form-group">
-                                <label accesskey="" style="text-align:left">Nombre empresa</label>
-                                <input class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Nombre empresa">
+                                <label accesskey="" style="text-align:left">Nombre</label>
+                                <input class="form-control" id="nombre" placeholder="Juan">
+                            </div>
+                            <div class="form-group">
+                                <label accesskey="" style="text-align:left">Apellidos</label>
+                                <input class="form-control" id="apellidos" placeholder="Pérez Cabezas">
                             </div>
                             <div class="form-group">
                                 <label>RUT</label><br />
                                 <input class="form-controlser" id="rut" placeholder="11.111.111" style="width:41%"><label>-</label>
-                                <input class="form-controlser" id="rut" placeholder="1" style="width:7%">
+                                <input class="form-controlser" id="rut" placeholder="1"style="width:7%">
                             </div>
                         </td>   
 
@@ -56,15 +60,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Dirección</label>
-                                    <input class="form-control" id="direccion" placeholder="Dirección"style="width:100%">
+                                    <input class="form-control" id="direccion" placeholder="Dirección" style="width:100%">
                                 </div>
                         </td>
                         
                     </tr>
 
-                    <td><button type="button" class="btn btn-success" style="width:150px" onclick="location.href='@Url.Action("Adm_empresas","Administrador")'">Cancelar</button></td>
+                    <td><button type="button" class="btn btn-success" style="width:150px" onclick="location.href='@Url.Action("Adm_encargado","Administrador")'">Cancelar</button></td>
 
-                    <td><button type="submit" class="btn btn-primary" style="width:150px; float:right">Agregar</button></td>
+                    <td><button type="submit" class="btn btn-primary" style="width:150px; float:right">Guardar</button></td>
                     
                    
                 </table>
