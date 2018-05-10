@@ -13,5 +13,9 @@ namespace LoginOfertas3.Controllers
         {
             return View();
         }
+        public ActionResult ADD_empresa()
+        {
+            return View();
+        }
     }
 }

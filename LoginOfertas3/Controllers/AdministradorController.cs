@@ -16,7 +16,12 @@ namespace LoginOfertas3.Controllers
 
 
         // GET: Rutas
-        public ActionResult administrar_empresas()
+        public ActionResult Administrar_empresas()
+        {
+            return View();
+        }
+
+        public ActionResult ADD_empresa()
         {
             return View();
         }

@@ -364,6 +364,12 @@
     <Content Include="Views\REGIONs\Index.cshtml" />
     <Content Include="Views\Administrador\Index.cshtml" />
     <Content Include="Views\Administrador\Administrar_empresas.cshtml" />
+    <Content Include="Views\Shared_adm\_Layout.cshtml" />
+    <Content Include="Views\Shared_adm\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared_adm\Error.cshtml" />
+    <Content Include="Views\Shared_adm\Lockout.cshtml" />
+    <Content Include="Views\Administrador\Adm_encargado.cshtml" />
+    <Content Include="Views\Administrador\ADD_empresa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
