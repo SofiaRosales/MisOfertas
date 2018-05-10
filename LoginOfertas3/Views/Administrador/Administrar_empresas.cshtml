@@ -15,7 +15,7 @@
     <center>
 
         <table style="width:100%">
-            <tr>
+            <tr class="table-active">
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>RUT</th>
@@ -33,7 +33,7 @@
                 <td>Smith</td>
                 <td>50</td>
                 <td>Jill</td>
-                <td><a href="url">Modificar</a> | <a href="url">Eliminar</a></i></td>
+                <td>@Html.ActionLink("Modificar", "UP_empresa", "Administrador") | @Html.ActionLink("Eliminar", "ADD_empresa", "Administrador")</td>
             </tr>
             
         </table> 

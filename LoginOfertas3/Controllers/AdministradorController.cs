@@ -25,5 +25,13 @@ namespace LoginOfertas3.Controllers
         {
             return View();
         }
+        public ActionResult UP_empresa()
+        {
+            return View();
+        }
+        public ActionResult Adm_perfil()
+        {
+            return View();
+        }
     }
 }

@@ -370,6 +370,8 @@
     <Content Include="Views\Shared_adm\Lockout.cshtml" />
     <Content Include="Views\Administrador\Adm_encargado.cshtml" />
     <Content Include="Views\Administrador\ADD_empresa.cshtml" />
+    <Content Include="Views\Administrador\UP_empresa.cshtml" />
+    <Content Include="Views\Administrador\Adm_perfil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
